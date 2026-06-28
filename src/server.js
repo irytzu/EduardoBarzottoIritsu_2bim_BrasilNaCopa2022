@@ -45,7 +45,11 @@ app.get('/jogos', async (req, res) => {
 
 app.get('/estatisticas', async (req, res) => {
   try {
-    const resultado = await pool.query('SELECT * FROM estatisticas');
+    const resultado = await pool.query(`
+      SELECT estatisticas.id, jogadores.nome, estatisticas.jogos, estatisticas.gols
+      FROM estatisticas
+      JOIN jogadores ON estatisticas.jogador_id = jogadores.id
+    `);
     res.json(resultado.rows);
   } catch (erro) {
     console.error(erro);

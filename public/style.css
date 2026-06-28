@@ -83,3 +83,9 @@ footer {
   padding: 20px;
   margin-top: 40px;
 }
+
+.foto-jogador {
+  display: block;
+  margin: 0 auto 10px auto;
+  border-radius: 50%;
+}
