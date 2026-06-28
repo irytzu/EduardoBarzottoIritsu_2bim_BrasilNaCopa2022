@@ -63,3 +63,23 @@ main {
   margin: 4px 0;
   color: #333;
 }
+.logo-header {
+  max-width: 150px;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+.imagem-secao {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+footer {
+  background-color: #1a1a2e;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}

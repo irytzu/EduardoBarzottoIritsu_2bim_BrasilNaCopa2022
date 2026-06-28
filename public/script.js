@@ -26,11 +26,15 @@ async function carregarJogos() {
   const container = document.getElementById('lista-jogos');
   container.innerHTML = dados.map(j => `
     <div class="card">
-      <pre>${JSON.stringify(j, null, 2)}</pre>
+      <h3>vs ${j.adversario}</h3>
+      <p>Data: ${new Date(j.data_jogo).toLocaleDateString('pt-BR')}</p>
+      <p>Gols ACMF: ${j.gols_acmf}</p>
+      <p>Gols Adversário: ${j.gols_adversario}</p>
     </div>
   `).join('');
 }
 
+// Carregar estatisticas
 async function carregarEstatisticas() {
   const resposta = await fetch('/estatisticas');
   const dados = await resposta.json();
@@ -38,7 +42,9 @@ async function carregarEstatisticas() {
   const container = document.getElementById('lista-estatisticas');
   container.innerHTML = dados.map(e => `
     <div class="card">
-      <pre>${JSON.stringify(e, null, 2)}</pre>
+      <h3>Jogador #${e.jogador_id}</h3>
+      <p>Jogos disputados: ${e.jogos}</p>
+      <p>Gols marcados: ${e.gols}</p>
     </div>
   `).join('');
 }
