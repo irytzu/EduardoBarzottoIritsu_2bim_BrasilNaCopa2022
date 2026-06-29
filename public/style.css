@@ -1,37 +1,142 @@
-body{
-
-    font-family: Arial;
-
-    background:#ececec;
-
-    padding:30px;
-
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
-h1{
-
-    color:green;
-
+body {
+  margin: 0;
+  background-color: #f4f4f4;
 }
 
-button{
-
-    padding:10px 20px;
-
-    cursor:pointer;
-
+header {
+  background-color: #1a1a2e;
+  color: white;
+  padding: 20px;
+  text-align: center;
 }
 
-.card{
+.bandeira {
+  width: 60px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
 
-    background:white;
+nav {
+  margin-top: 15px;
+}
 
-    margin-top:10px;
+nav button {
+  margin: 0 5px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #0f3460;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
 
-    padding:15px;
+nav button:hover {
+  background-color: #16213e;
+}
 
-    border-radius:10px;
+main {
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
 
-    box-shadow:0 0 5px rgba(0,0,0,.2);
+.lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
 
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+  margin: 0 0 10px 0;
+  color: #0f3460;
+}
+
+.card p {
+  margin: 4px 0;
+  color: #333;
+}
+
+aside {
+  margin-top: 30px;
+  background-color: #e8e8e8;
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+}
+
+.bola {
+  width: 40px;
+  margin-bottom: 10px;
+}
+
+footer {
+  background-color: #1a1a2e;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+.foto-jogador {
+  display: block;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto 10px auto;
+}
+
+.competicao-label {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.lista-eventos-jogo {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lista-eventos-jogo li {
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+.lista-eventos-jogo li:last-child {
+  border-bottom: none;
+}
+
+.sub-abas {
+  margin-bottom: 10px;
+}
+
+.sub-abas button {
+  padding: 8px 16px;
+  margin-right: 8px;
+  border: 1px solid #0f3460;
+  background-color: white;
+  color: #0f3460;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.sub-abas .aba-ativa {
+  background-color: #0f3460;
+  color: white;
 }

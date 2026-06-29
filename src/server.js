@@ -1,104 +1,60 @@
-const express = require("express");
-const cors = require("cors");
-const db = require("./db");
-const path = require("path");
+const express = require('express');
+const pool = require('./db');
 
 const app = express();
-
-app.use(cors());
 app.use(express.json());
+app.use(express.static('public'));
 
-app.use(express.static(path.join(__dirname, "../public")));
+const PORT = 3000;
 
-app.get("/jogadores", async (req, res) => {
-    try {
-        const resultado = await db.query(
-            "SELECT * FROM jogadores ORDER BY id"
-        );
-
-        res.json(resultado.rows);
-
-    } catch (erro) {
-        console.log(erro);
-        res.status(500).json({ erro: "Erro no servidor" });
-    }
+app.get('/', (req, res) => {
+  res.send('API funcionando!');
 });
 
-app.post("/jogadores", async (req, res) => {
-
-    const { nome, posicao, clube } = req.body;
-
-    try {
-
-        await db.query(
-            "INSERT INTO jogadores(nome,posicao,clube) VALUES($1,$2,$3)",
-            [nome, posicao, clube]
-        );
-
-        res.json({ mensagem: "Jogador cadastrado!" });
-
-    } catch (erro) {
-
-        console.log(erro);
-
-        res.status(500).json({ erro: "Erro ao cadastrar" });
-
-    }
-
+app.get('/jogadores', async (req, res) => {
+  try {
+    const resultado = await pool.query('SELECT * FROM jogadores ORDER BY nome');
+    res.json(resultado.rows);
+  } catch (erro) {
+    console.error(erro);
+    res.status(500).json({ erro: 'Erro ao buscar jogadores' });
+  }
 });
 
-app.put("/jogadores/:id", async (req, res) => {
-
-    const { nome, posicao, clube } = req.body;
-
-    try {
-
-        await db.query(
-
-            "UPDATE jogadores SET nome=$1,posicao=$2,clube=$3 WHERE id=$4",
-
-            [nome, posicao, clube, req.params.id]
-
-        );
-
-        res.json({ mensagem: "Jogador atualizado!" });
-
-    } catch (erro) {
-
-        console.log(erro);
-
-        res.status(500).json({ erro: "Erro ao atualizar" });
-
-    }
-
+app.get('/jogos', async (req, res) => {
+  try {
+    const resultado = await pool.query('SELECT * FROM jogos ORDER BY data_jogo');
+    res.json(resultado.rows);
+  } catch (erro) {
+    console.error(erro);
+    res.status(500).json({ erro: 'Erro ao buscar jogos' });
+  }
 });
 
-app.delete("/jogadores/:id", async (req, res) => {
-
-    try {
-
-        await db.query(
-
-            "DELETE FROM jogadores WHERE id=$1",
-
-            [req.params.id]
-
-        );
-
-        res.json({ mensagem: "Jogador removido!" });
-
-    } catch (erro) {
-
-        console.log(erro);
-
-        res.status(500).json({ erro: "Erro ao excluir" });
-
-    }
-
+app.get('/eventos', async (req, res) => {
+  try {
+    const resultado = await pool.query(`
+      SELECT 
+        eventos.id,
+        eventos.tipo,
+        eventos.minuto,
+        jogadores.nome AS jogador,
+        jogadores.selecao,
+        jogos.id AS jogo_id,
+        jogos.adversario,
+        jogos.competicao
+      FROM eventos
+      JOIN jogadores ON eventos.jogador_id = jogadores.id
+      JOIN jogos ON eventos.jogo_id = jogos.id
+      ORDER BY jogos.data_jogo, eventos.minuto
+    `);
+    res.json(resultado.rows);
+  } catch (erro) {
+    console.error(erro);
+    res.status(500).json({ erro: 'Erro ao buscar eventos' });
+  }
 });
 
-app.listen(3000, () => {
-
-    console.log("Servidor rodando em http://localhost:3000");
-
+app.listen(PORT, () => {
+  console.log(`Servidor rodando em http://localhost:${PORT}`);
 });

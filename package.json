@@ -1,7 +1,7 @@
 {
-  "name": "acmf-projeto-dw",
+  "name": "wc_convocacoes",
   "version": "1.0.0",
-  "description": "",
+  "description": "API e site sobre o Brasil na Copa do Mundo de 2022",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/server.js",
@@ -12,7 +12,7 @@
     "url": "git+https://github.com/irytzu/ACMF-Projeto-DW.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Eduardo Barzotto Iritsu",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/irytzu/ACMF-Projeto-DW#readme",
   "dependencies": {
+    "cors": "^2.8.6",
     "express": "^5.2.1",
     "pg": "^8.22.0"
   },

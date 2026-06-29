@@ -1,31 +1,53 @@
 <!DOCTYPE html>
-
 <html lang="pt-br">
-
 <head>
-
-<meta charset="UTF-8">
-
-<title>Seleção Brasileira</title>
-
-<link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8">
+  <title>Brasil na Copa do Mundo 2022</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<h1>Seleção Brasileira</h1>
+  <header>
+  <h1>Brasil na Copa do Mundo 2022</h1>
+  <img src="https://flagcdn.com/br.svg" alt="Bandeira do Brasil" class="bandeira">
+  <nav>
+      <button onclick="mostrarSecao('jogadores')">Convocados</button>
+      <button onclick="mostrarSecao('jogos')">Jogos</button>
+      <button onclick="mostrarSecao('eventos')">Gols e Assistências</button>
+    </nav>
+  </header>
 
-<button onclick="listarJogadores()">
+  <main>
+    <section id="jogadores" class="secao">
+      <h2>Jogadores Convocados</h2>
+      <div id="lista-jogadores" class="lista"></div>
+    </section>
 
-Mostrar Jogadores
+    <section id="jogos" class="secao" style="display: none;">
+      <h2>Jogos do Brasil</h2>
+      <div id="lista-jogos" class="lista"></div>
+    </section>
 
-</button>
+    <section id="eventos" class="secao" style="display: none;">
+  <h2>Gols e Assistências</h2>
+  <div class="sub-abas">
+    <button onclick="filtrarEventos('Brasil')" class="aba-ativa" id="aba-brasil">Brasil</button>
+    <button onclick="filtrarEventos('adversarios')" id="aba-adversarios">Adversários</button>
+  </div>
+  <div id="lista-eventos" class="lista"></div>
+</section>
 
-<div id="lista"></div>
+    <aside>
+      <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/72x72/26bd.png" alt="Bola de futebol" class="bola">
+      <p>Curiosidade: o Brasil terminou a Copa do Mundo de 2022 na 7ª colocação, eliminado nas quartas de final pela Croácia.</p>
+    </aside>
+  </main>
 
-<script src="script.js"></script>
+  <footer>
+    <p>Desenvolvido por: <strong>Eduardo Barzotto Iritsu</strong></p>
+    <p>2º Bimestre - Desenvolvimento Web</p>
+  </footer>
 
+  <script src="script.js"></script>
 </body>
-
 </html>
