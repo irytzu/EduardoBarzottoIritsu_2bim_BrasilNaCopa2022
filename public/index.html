@@ -1,44 +1,31 @@
 <!DOCTYPE html>
+
 <html lang="pt-br">
+
 <head>
-  <meta charset="UTF-8">
-  <title>ACMF - Sistema de Futebol</title>
-  <link rel="stylesheet" href="style.css">
+
+<meta charset="UTF-8">
+
+<title>Seleção Brasileira</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
 
-  <header>
-    <h1>ACMF - Sistema de Futebol</h1>
-    <img src="img/logo-time.jpg" alt="Logo do time ACMF" class="logo-header">
-    <nav>
-      <button onclick="mostrarSecao('jogadores')">Jogadores</button>
-      <button onclick="mostrarSecao('jogos')">Jogos</button>
-      <button onclick="mostrarSecao('estatisticas')">Estatísticas</button>
-    </nav>
-  </header>
+<h1>Seleção Brasileira</h1>
 
-  <main>
-    <section id="jogadores" class="secao">
-      <h2>Jogadores</h2>
-      <div id="lista-jogadores" class="lista"></div>
-    </section>
+<button onclick="listarJogadores()">
 
-    <section id="jogos" class="secao" style="display: none;">
-      <h2>Jogos</h2>
-      <div id="lista-jogos" class="lista"></div>
-    </section>
+Mostrar Jogadores
 
-    <section id="estatisticas" class="secao" style="display: none;">
-      <h2>Estatísticas</h2>
-      <div id="lista-estatisticas" class="lista"></div>
-    </section>
-  </main>
+</button>
 
-  <footer>
-    <p>Desenvolvido por: <strong>[SEU NOME COMPLETO AQUI]</strong></p>
-    <p>2º Bimestre - Desenvolvimento Web</p>
-  </footer>
+<div id="lista"></div>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
+
 </body>
+
 </html>
