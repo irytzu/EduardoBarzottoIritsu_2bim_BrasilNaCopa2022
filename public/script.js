@@ -12,7 +12,11 @@ async function carregarJogadores() {
   const container = document.getElementById('lista-jogadores');
   container.innerHTML = dados.map(j => `
     <div class="card">
-      <img src="https://ui-avatars.com/api/?name=${encodeURIComponent(j.nome)}&background=0f3460&color=fff&size=100" alt="Foto de ${j.nome}" class="foto-jogador">
+      <img 
+        src="img/jogadores/${j.id}.jpg" 
+        onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(j.nome)}&background=0f3460&color=fff&size=100'"
+        alt="Foto de ${j.nome}" 
+        class="foto-jogador">
       <h3>${j.nome}</h3>
       <p>Posição: ${j.posicao}</p>
       <p>Idade: ${j.idade}</p>
